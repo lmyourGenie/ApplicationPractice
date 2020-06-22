@@ -13,7 +13,7 @@ import java.io.IOException;
 class ApiExplorer {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("getBusLocationList"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=nGOmcg1umD%2BOhGHhc33UVio1UBrdSRX2wvXc6Gq1NU0zZHqexjJm%2F9eWRdDXZ57Md7lCBFeBapBCD0BnytL1oA%3D%3D"); /*Service Key*/
+        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=%2FFu0yuJRSgJ%2FepUb1ep7C%2BTajB0Y369DE%2Bh88D4hL4LAPRJaUQw6XYd3xh5x6Cz34rapU1WLyXM9gvD6bCP9dQ%3D%3D"); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("routeId","UTF-8") + "=" + URLEncoder.encode("233000031", "UTF-8")); /*노선 ID*/
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
