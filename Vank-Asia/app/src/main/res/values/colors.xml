@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#451E20</color> //시간 배경
     <color name="colorAccent">#FFDF4F</color>
 
+    <color name="color1">#FECE02</color>
+    <color name="color2">#0262B3</color>
     <color name="color4">#C41C23</color>
 </resources>

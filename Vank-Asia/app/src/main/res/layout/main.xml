@@ -24,9 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:itemBackground="@color/color4"
+        app:itemBackground="@color/colorPrimary"
         app:itemIconTint="#ffffff"
         app:itemTextColor="#ccffffff"
+        android:fontFamily="@font/seoulhangang"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom"
         tools:layout_editor_absoluteX="16dp">

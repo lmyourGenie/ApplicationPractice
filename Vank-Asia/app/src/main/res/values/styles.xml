@@ -8,7 +8,7 @@
 
 
         <!-- To change the background of options menu-->
-        <item name="android:itemBackground">#B50A01</item>
+        <item name="android:itemBackground">#CE5B60</item>
 
 
     </style>
