@@ -1,4 +1,4 @@
-package com.example.vank_asia;
+package com.ImyourGenie.vank_asia;
 
 import org.junit.Test;
 

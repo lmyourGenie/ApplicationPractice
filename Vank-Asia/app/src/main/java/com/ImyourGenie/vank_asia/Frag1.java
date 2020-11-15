@@ -1,4 +1,4 @@
-package com.example.vank_asia;
+package com.ImyourGenie.vank_asia;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,14 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Frag3 extends Fragment {
+public class Frag1 extends Fragment// Fragment 클래스를 상속받아야한다
+{
     private View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.frag3,container,false);
+        view = inflater.inflate(R.layout.frag1,container,false);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 }
