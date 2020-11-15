@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_first"
+        android:enabled="true"
+        android:icon="@drawable/menu_ic_1"
+        android:title="아세안이란?" />
+
+    <item
+        android:id="@+id/action_second"
+        android:enabled="true"
+        android:icon="@drawable/menu_ic_2_assignment"
+        android:title="회원국 소개"/>
+
+    <item
+        android:id="@+id/action_third"
+        android:enabled="true"
+        android:icon="@drawable/menu_ic_3"
+        android:title="VANK/아시아친선대사"/>
+</menu>

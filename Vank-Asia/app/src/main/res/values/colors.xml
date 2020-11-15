@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CE5B60</color> //로고 배경
+    <color name="colorPrimaryDark">#451E20</color> //시간 배경
+    <color name="colorAccent">#FFDF4F</color>
+
+    <color name="color4">#C41C23</color>
+</resources>
