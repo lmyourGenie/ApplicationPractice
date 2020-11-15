@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Vank_Asia</string>
     <string name="app_name_korea">아세안 바로알기</string>
-    <string name="introduce_1">1번 아세안 소개입니둥</string>
-    <string name="introduce_2">2번 뭘로 하지 소개입니둥</string>
+    <string name="introduce_1">아세안(ASEAN)은 동남아국가연합(Association of Southeast Asian Nations)의 약자로 10개의 동남아시아 국가들의 정치경제적 연합체입니다. 아세안은 궁극적으로 EU(유럽연합)와 같은 지역통합체를 목표로 하고 있으며 한국, 중국, 일본과는 ASEAN+3 형태의 정상회의를 개최하고 있습니다.</string>
+    <string name="introduce_2">베트남전 본격화, 인도차이나 공산주의 확산 등 국제정세 급변에 따른 공동 대응 필요성에 따라, 1967년 8월 8일 ASEAN 5개국이 (인도네시아, 태국, 말레이시아, 필리핀, 싱가포르) 외교장관 회의를 개최하여 ASEAN 창립 선언(방콕 선언)을 발표함으로써 결성되었습니다.</string>
+    <string name="introduce_3">한국, 인도, 일본, 뉴질랜드, 러시아, 미국, 호주, 캐나다, 중국, 파키스탄</string>
 </resources>

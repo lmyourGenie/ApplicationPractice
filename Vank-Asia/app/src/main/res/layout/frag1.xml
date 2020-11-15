@@ -23,6 +23,7 @@
             android:fontFamily="@font/seoulhangang"
             android:gravity="bottom|center_horizontal"
             android:text="아세안을 소개합니다 :)"
+            android:textStyle="bold"
             android:layout_marginTop="-3dp"
             android:textSize="24sp"
             android:textColor="#451E20"/>
@@ -81,7 +82,8 @@
                         android:background="@drawable/sidebar1"
                         android:fontFamily="@font/seoulhangang"
                         android:text="@string/introduce_1"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="#451E20"/>
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -105,7 +107,7 @@
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/font_seoulhangang"
                     android:padding="15dp"
-                    android:text="2. 뭘로 하지"
+                    android:text="2. 창설 배경"
                     android:textColor="#451E20"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -129,10 +131,108 @@
                         android:background="@drawable/sidebar1"
                         android:fontFamily="@font/seoulhangang"
                         android:text="@string/introduce_2"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="#451E20"/>
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:scaleX="10"
+                android:background="#ffffff">
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sidebar"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/font_seoulhangang"
+                    android:padding="15dp"
+                    android:text="3. 대화상대국 외교관계를 맺고 있는 국가"
+                    android:textColor="#451E20"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:padding="15dp"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sidebar1"
+                        android:fontFamily="@font/seoulhangang"
+                        android:text="@string/introduce_3"
+                        android:textSize="16sp"
+                        android:textColor="#451E20"/>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:scaleX="10"
+                android:background="#ffffff">
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sidebar"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/font_seoulhangang"
+                    android:padding="15dp"
+                    android:text="4. Be a Friend of ASIA!"
+                    android:textColor="#451E20"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="2dp"
+                    android:padding="15dp"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardUseCompatPadding="true">
+
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        card_view:srcCompat="@drawable/image" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
