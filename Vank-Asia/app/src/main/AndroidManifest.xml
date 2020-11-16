@@ -15,6 +15,8 @@
         </activity>
 
         <activity android:name="com.ImyourGenie.vank_asia.Frag2_detail"/>
+        <activity android:name=".vank_detail"/>
+        <activity android:name=".we_detail"/>
 
         <activity
             android:name="com.ImyourGenie.vank_asia.splashActivity"
