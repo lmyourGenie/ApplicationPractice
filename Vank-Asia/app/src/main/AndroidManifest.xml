@@ -18,9 +18,10 @@
         <activity android:name=".vank_detail"/>
         <activity android:name=".we_detail"/>
 
+        <activity android:name=".Frag2_detail_detail"/>
         <activity
             android:name="com.ImyourGenie.vank_asia.splashActivity"
-            android:screenOrientation="portrait">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
