@@ -1,10 +1,8 @@
 package com.ImyourGenie.vank_asia;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +14,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.youtube.player.internal.e;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -60,58 +54,6 @@ public class Frag2_detail extends AppCompatActivity {
         setContentView(R.layout.detail_country);
         Excel();
 
-/*
-
-
-
-
-        if(str6.equals(korea_name)){ //브루나이 준비안됨
-            toastshow("준비중입니다. 조금만 기다려주세요 ^^;");
-            onBackPressed();
-        }
-
-        else{
-            toastshow(korea_name + "을(를) 소개합니다!");
-            if(str1.equals(korea_name)){ //인도네시아
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221789982674"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str2.equals(korea_name)){ //태국
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221833980919"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str3.equals(korea_name)){ //필리핀
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221826039646"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str4.equals(korea_name)){ //말레이시아
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221804650834"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str5.equals(korea_name)){ //싱가포르
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221836785857"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str7.equals(korea_name)){ //베트남
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221514963379"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str8.equals(korea_name)){ //라오스
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221971813662"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str9.equals(korea_name)){ //미얀마
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221520570343"));
-                startActivity(intent);onBackPressed();
-            }
-            else if(str10.equals(korea_name)){ //캄보디아
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.blog.naver.com/vank1999/221804682127"));
-                startActivity(intent);onBackPressed();
-            }
-        }
-
-*/
-
     }
 //https://m.blog.naver.com/PostView.nhn?blogId=gjdeveloper&logNo=220558182815&proxyReferer=https:%2F%2Fwww.google.com%2F
     private void Excel() {
@@ -125,7 +67,6 @@ public class Frag2_detail extends AppCompatActivity {
             if (wb != null) {
                 sheet = wb.getSheet(0);   // 시트 불러오기
                 if (sheet != null) {
-
 
                     if (str1.equals(korea_name)) { //인도네시아
 
@@ -163,44 +104,328 @@ public class Frag2_detail extends AppCompatActivity {
                         });
 
                     }
-/*
-                } else if (str2.equals(korea_name)) { //태국
-                    for (int row = rowIndexStart; row < rowTotal; row++) {
-                        sb = new StringBuilder();
-                        int col = 1;
-                        String contents = sheet.getCell(col, row).getContents();
-                        sb.append("col" + col + " : " + contents + " , ");
+                    else if (str2.equals(korea_name)) { //태국
 
-                        Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
-                        intent.putExtra("국가명", "태국");
-                        startActivity(intent);
+                        toastshow("태국을 안내합니다!");
+
+                        int row = 1; //태국
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "태국");  //태국
+                                startActivity(intent);
+                            }
+                        });
+
                     }
-                } else if (str3.equals(korea_name)) { //필리핀
+                    else if (str3.equals(korea_name)) { //필리핀
 
-                } else if (str4.equals(korea_name)) { //말레이시아
+                        toastshow("필리핀을 안내합니다!");
 
-                } else if (str5.equals(korea_name)) { //싱가포르
+                        int row = 2; //필리핀
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
 
-                } else if (str6.equals(korea_name)) { //브루나이
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
 
-                } else if (str7.equals(korea_name)) { //베트남
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
 
-                } else if (str8.equals(korea_name)) { //라오스
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
 
-                } else if (str9.equals(korea_name)) { //미얀마
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "필리핀");  //필리핀
+                                startActivity(intent);
+                            }
+                        });
 
-                } else if (str10.equals(korea_name)) { //캄보디아
+                    }
+                    else if (str4.equals(korea_name)) { //말레이시아
 
-                }
-*/
-/*  클릭시 인텐트 넘기면 됨
-                       긍까 이미지에 클릭 이벤트 넣고 인텐트 보내면됨
-                        Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                        toastshow("말레이시아를 안내합니다!");
 
+                        int row = 3; //말레이시아
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
 
-                        intent.putExtra("국가명", contents1);
-                        startActivity(intent);
-                        */
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "말레이시아");  //말레이시아
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+                    else if (str5.equals(korea_name)) { //싱가포르
+
+                        toastshow("싱가포르를 안내합니다!");
+
+                        int row = 4; //싱가포르
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "싱가포르");  //싱가포르
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+                    else if (str6.equals(korea_name)) { //브루나이
+
+                        toastshow("브루나이를 안내합니다!");
+
+                        int row = 5; //브루나이
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                toastshow("브루나이에 대한 카드뉴스는 준비중입니다.\n조금만 기다려주세요 ^^;");
+                            }
+                        });
+
+                    }
+                    else if (str7.equals(korea_name)) { //베트남
+
+                        toastshow("베트남을 안내합니다!");
+
+                        int row = 6; //베트남
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "베트남");  //베트남
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+                    else if (str8.equals(korea_name)) { //라오스
+
+                        toastshow("라오스를 안내합니다!");
+
+                        int row = 7; //라오스
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "라오스");  //라오스
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+                    else if (str9.equals(korea_name)) { //미얀마
+
+                        toastshow("미얀마를 안내합니다!");
+
+                        int row = 8; //미얀마
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "미얀마");  //미얀마
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+                    else if (str10.equals(korea_name)) { //캄보디아
+
+                        toastshow("캄보디아를 안내합니다!");
+
+                        int row = 9; //캄보디아
+                        String contents1 = sheet.getCell(0, row).getContents();
+                        String contents2 = sheet.getCell(1, row).getContents();
+                        String contents3 = sheet.getCell(2, row).getContents();
+                        String contents4 = sheet.getCell(3, row).getContents();
+                        String contents5 = sheet.getCell(4, row).getContents();
+
+                        textView3=(TextView) findViewById(R.id.textView3);
+                        textView4=(TextView) findViewById(R.id.textView4);
+                        textView5=(TextView) findViewById(R.id.textView5);
+                        textView6=(TextView) findViewById(R.id.textView6);
+                        textView7=(TextView) findViewById(R.id.textView7);
+
+                        textView3.setText(contents1);
+                        textView4.setText(contents2);
+                        textView5.setText(contents3);
+                        textView6.setText(contents4);
+                        textView7.setText(contents5);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+
+                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
+                                intent.putExtra("국가명", "캄보디아");  //캄보디아
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
                 }
             }
         }
@@ -224,6 +449,5 @@ public class Frag2_detail extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show(); }
-
 
 }
