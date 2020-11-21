@@ -68,7 +68,6 @@
             android:layout_marginLeft="40dp"
             android:layout_marginBottom="140dp"
             android:background="#00ff0000"
-            android:text="Button"
             android:visibility="visible" />
 
     </FrameLayout>

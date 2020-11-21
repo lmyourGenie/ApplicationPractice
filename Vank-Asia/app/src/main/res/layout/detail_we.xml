@@ -8,11 +8,12 @@
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:padding="15dp"
         app:autoPlay="false"
         app:showYouTubeButton="true"
-        app:videoId="E9m2wVSBDC4">
+        app:videoId="RTyqFYaLJJg">
     </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+
 
 </LinearLayout>
