@@ -164,7 +164,7 @@ public class Frag2_detail extends AppCompatActivity {
                         textView7.setText(contents5);
 
                         imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView.setImageResource(R.drawable.country_ph);  //국가 이미지 넣기
 
                         imageView.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override

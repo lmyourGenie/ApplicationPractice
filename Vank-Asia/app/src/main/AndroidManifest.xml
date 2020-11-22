@@ -12,14 +12,16 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ImyourGenie.vank_asia.MainActivity">
-        </activity>
+
+        <activity android:name="com.ImyourGenie.vank_asia.MainActivity"/>
+        <activity android:name="com.ImyourGenie.vank_asia.Frag1_detail"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
 
         <activity android:name="com.ImyourGenie.vank_asia.Frag2_detail"/>
-        <activity android:name=".vank_detail"/>
-        <activity android:name=".we_detail"/>
+        <activity android:name="com.ImyourGenie.vank_asia.vank_detail"/>
+        <activity android:name="com.ImyourGenie.vank_asia.we_detail"/>
+        <activity android:name="com.ImyourGenie.vank_asia.Frag2_detail_detail"/>
 
-        <activity android:name=".Frag2_detail_detail"/>
         <activity
             android:name="com.ImyourGenie.vank_asia.splashActivity"
             android:theme="@style/SplashTheme">
@@ -29,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

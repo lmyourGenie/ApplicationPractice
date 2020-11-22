@@ -1,5 +1,6 @@
 package com.ImyourGenie.vank_asia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,22 @@ import com.bumptech.glide.Glide;
 public class Frag1 extends Fragment// Fragment 클래스를 상속받아야한다
 {
     private View view;
+    ImageView imageView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag1,container,false);
+
+
+        imageView = (ImageView) view.findViewById(R.id.AseanImage);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Frag1.super.getContext(), Frag1_detail.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
