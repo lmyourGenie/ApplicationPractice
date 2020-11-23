@@ -2,6 +2,7 @@ package com.ImyourGenie.vank_asia;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -85,4 +86,5 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
 }

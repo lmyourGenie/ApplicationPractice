@@ -24,6 +24,7 @@ public class Frag1 extends Fragment// Fragment 클래스를 상속받아야한�
         view = inflater.inflate(R.layout.frag1,container,false);
 
 
+        /*
         imageView = (ImageView) view.findViewById(R.id.AseanImage);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,8 @@ public class Frag1 extends Fragment// Fragment 클래스를 상속받아야한�
                 startActivity(intent);
             }
         });
+        */
+
 
         return view;
     }

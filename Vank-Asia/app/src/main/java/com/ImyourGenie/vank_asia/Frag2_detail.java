@@ -3,17 +3,21 @@ package com.ImyourGenie.vank_asia;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,8 +47,9 @@ public class Frag2_detail extends AppCompatActivity {
     TextView textView6;
     TextView textView7;
 
+    ImageView imageView_f;
     ImageView imageView;
-
+    ImageView imageView_cardnews;
 
     // 링크걸기참고 https://hongku.tistory.com/205
 
@@ -53,7 +58,8 @@ public class Frag2_detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_country);
         Excel();
-
+        ImageView iv = (ImageView)findViewById(R.id.imageView_cardnews);
+        Glide.with(this).load(R.drawable.cardnews).into(iv);
     }
 //https://m.blog.naver.com/PostView.nhn?blogId=gjdeveloper&logNo=220558182815&proxyReferer=https:%2F%2Fwww.google.com%2F
     private void Excel() {
@@ -70,7 +76,7 @@ public class Frag2_detail extends AppCompatActivity {
 
                     if (str1.equals(korea_name)) { //인도네시아
 
-                        toastshow("인도네시아를 안내합니다!");
+                        toastshow("인도네시아를 선택하셨습니다.");
 
                         int row = 0; //인도네시아
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -91,10 +97,18 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_indonesia);
+
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_indonesia);  //국가 이미지 넣기
+
+
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -106,7 +120,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str2.equals(korea_name)) { //태국
 
-                        toastshow("태국을 안내합니다!");
+                        toastshow("태국을 선택하셨습니다.");
 
                         int row = 1; //태국
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -127,10 +141,15 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_tai);
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_tai);  //국가 이미지 넣기
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -142,7 +161,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str3.equals(korea_name)) { //필리핀
 
-                        toastshow("필리핀을 안내합니다!");
+                        toastshow("필리핀을 선택하셨습니다.");
 
                         int row = 2; //필리핀
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -163,10 +182,17 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        imageView.setImageResource(R.drawable.country_ph);  //국가 이미지 넣기
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_ph);
+
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_ph);  //국가 이미지 넣기
+
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -178,7 +204,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str4.equals(korea_name)) { //말레이시아
 
-                        toastshow("말레이시아를 안내합니다!");
+                        toastshow("말레이시아를 선택하셨습니다.");
 
                         int row = 3; //말레이시아
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -199,10 +225,15 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_m);
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_m);  //국가 이미지 넣기
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -214,7 +245,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str5.equals(korea_name)) { //싱가포르
 
-                        toastshow("싱가포르를 안내합니다!");
+                        toastshow("싱가포르를 선택하셨습니다.");
 
                         int row = 4; //싱가포르
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -235,10 +266,15 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_s);
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_s);  //국가 이미지 넣기
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -250,7 +286,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str6.equals(korea_name)) { //브루나이
 
-                        toastshow("브루나이를 안내합니다!");
+                        toastshow("브루나이를 선택하셨습니다.");
 
                         int row = 5; //브루나이
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -271,10 +307,16 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_b);
+
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setVisibility(View.INVISIBLE);
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 toastshow("브루나이에 대한 카드뉴스는 준비중입니다.\n조금만 기다려주세요 ^^;");
@@ -284,7 +326,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str7.equals(korea_name)) { //베트남
 
-                        toastshow("베트남을 안내합니다!");
+                        toastshow("베트남을 선택하셨습니다.");
 
                         int row = 6; //베트남
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -304,11 +346,15 @@ public class Frag2_detail extends AppCompatActivity {
                         textView5.setText(contents3);
                         textView6.setText(contents4);
                         textView7.setText(contents5);
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_viet);
+
 
                         imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView.setImageResource(R.drawable.c_viet);  //국가 이미지 넣기
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -317,10 +363,11 @@ public class Frag2_detail extends AppCompatActivity {
                             }
                         });
 
+
                     }
                     else if (str8.equals(korea_name)) { //라오스
 
-                        toastshow("라오스를 안내합니다!");
+                        toastshow("라오스를 선택하셨습니다.");
 
                         int row = 7; //라오스
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -341,10 +388,15 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_ra);
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_ra);  //국가 이미지 넣기
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -356,7 +408,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str9.equals(korea_name)) { //미얀마
 
-                        toastshow("미얀마를 안내합니다!");
+                        toastshow("미얀마를 선택하셨습니다.");
 
                         int row = 8; //미얀마
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -377,10 +429,16 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_mi);
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_mi);  //국가 이미지 넣기
+
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
@@ -392,7 +450,7 @@ public class Frag2_detail extends AppCompatActivity {
                     }
                     else if (str10.equals(korea_name)) { //캄보디아
 
-                        toastshow("캄보디아를 안내합니다!");
+                        toastshow("캄보디아를 선택하셨습니다.");
 
                         int row = 9; //캄보디아
                         String contents1 = sheet.getCell(0, row).getContents();
@@ -413,10 +471,15 @@ public class Frag2_detail extends AppCompatActivity {
                         textView6.setText(contents4);
                         textView7.setText(contents5);
 
-                        imageView=(ImageView) findViewById(R.id.imageView_country);
-                        //imageView.setImage(~~~~~);  국가 이미지 넣기
+                        imageView_f=(ImageView) findViewById(R.id.imageView_flag);
+                        imageView_f.setImageResource(R.drawable.f_cam);
 
-                        imageView.setOnClickListener(new AdapterView.OnClickListener() {
+
+                        imageView=(ImageView) findViewById(R.id.imageView_country);
+                        imageView.setImageResource(R.drawable.c_cam);  //국가 이미지 넣기
+                        imageView_cardnews=(ImageView) findViewById(R.id.imageView_cardnews);
+
+                        imageView_cardnews.setOnClickListener(new AdapterView.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(Frag2_detail.this, Frag2_detail_detail.class);
