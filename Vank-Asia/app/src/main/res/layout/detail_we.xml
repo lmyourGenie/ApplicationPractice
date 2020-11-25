@@ -8,12 +8,43 @@
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:padding="15dp"
         app:autoPlay="false"
         app:showYouTubeButton="true"
         app:videoId="RTyqFYaLJJg">
+
     </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
 
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/seoulhangang"
+        android:text="▷ 한국인이 우리의 역사와 문화에 대한 자부심을 느끼듯이
+\n아시아 각 나라 또한 고유의 역사와 찬란한 문화가 있습니다.
+\n아시아친선대사는 한국의 역사와 문화를 아시아에 소개하는 동시에 아시아 각 나라를 전 세계에 바르게 알리는 다양한 활동을 전개합니다."
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="222dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:src="@drawable/we"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사이버외교사절단 반크는 이 꿈을 품고 아시아를 대표할 대한민국 청년들을 기다립니다. 대한민국이 지구촌 모든 이의 희망의 숲이 되는 것! 우리의 꿈이 아시아의 미래입니다!
+\n세계 속에 아시아 문화와 역사를 알려나가는 아시아친선대사에 도전해주세요!"
+        android:textColor="#000000"
+        android:fontFamily="@font/seoulhangang"
+        android:textSize="16sp" />
 
 </LinearLayout>

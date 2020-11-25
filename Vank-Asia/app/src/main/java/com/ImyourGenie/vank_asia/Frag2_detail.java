@@ -508,7 +508,7 @@ public class Frag2_detail extends AppCompatActivity {
         text.setText(e);
         text.setTextSize(15);
         text.setTextColor(Color.WHITE);
-        toast.setGravity(Gravity.BOTTOM,0,0);
+        toast.setGravity(Gravity.BOTTOM,0,100);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show(); }

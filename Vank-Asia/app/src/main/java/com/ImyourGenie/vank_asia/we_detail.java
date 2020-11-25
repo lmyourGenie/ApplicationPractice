@@ -13,5 +13,6 @@ public class we_detail extends Activity {
         setContentView(R.layout.detail_we);
 
 
+
     }
 }
