@@ -1,0 +1,226 @@
+/*
+ *     Spruce
+ *
+ *     Copyright (c) 2017 WillowTree, Inc.
+ *     Permission is hereby granted, free of charge, to any person obtaining a copy
+ *     of this software and associated documentation files (the "Software"), to deal
+ *     in the Software without restriction, including without limitation the rights
+ *     to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *     copies of the Software, and to permit persons to whom the Software is
+ *     furnished to do so, subject to the following conditions:
+ *     The above copyright notice and this permission notice shall be included in
+ *     all copies or substantial portions of the Software.
+ *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *     THE SOFTWARE.
+ *
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode rootProject.ext.version_code
+        versionName rootProject.ext.version_name
+        setProperty("archivesBaseName", "spruce-android")
+        multiDexEnabled false
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    tasks.withType(Javadoc).all {
+        enabled = false
+    }
+
+}
+
+task javadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    destinationDir = file("../docs/")
+    failOnError false
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$androidx_appcompact"
+    implementation "androidx.core:core-ktx:$kotlin_project_version"
+    implementation "androidx.collection:collection-ktx:$kotlin_collections_ktx"
+
+    // Local Unit tests
+    testImplementation "junit:junit:$local_junit_version"
+    testImplementation "org.mockito:mockito-core:$local_mokito_version"
+    testImplementation "org.robolectric:robolectric:$local_robo_electric_version"
+
+
+    // UI Testing
+    androidTestImplementation "androidx.test:runner:$ui_test_runner_version"
+    androidTestImplementation "androidx.test.ext:junit:$ui_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$ui_espresso_core_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$ui_espresso_intent_version"
+}
+
+def siteUrl = 'https://github.com/willowtreeapps/spruce-android'
+def gitUrl = 'https://github.com/willowtreeapps/spruce-android.git'
+group = rootProject.ext.group_name
+version = rootProject.ext.version_name
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                name rootProject.ext.lib_name
+                description = rootProject.ext.lib_desc
+                url siteUrl
+
+                licenses {
+                    license {
+                        name rootProject.ext.license_name
+                        url rootProject.ext.license_url
+                    }
+                }
+                developers {
+                    developer {
+                        id rootProject.ext.dev_id
+                        name rootProject.ext.dev_name
+                        email rootProject.ext.dev_email
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            MyPublication(MavenPublication) {
+                groupId rootProject.ext.group_name
+                artifactId rootProject.ext.lib_name
+                version rootProject.ext.version_name
+            }
+
+            pom.withXml {
+                final dependenciesNode = asNode().appendNode('dependencies')
+
+                ext.addDependency = { Dependency dep, String scope ->
+                    if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
+                        return // ignore invalid dependencies
+
+                    final dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', dep.group)
+                    dependencyNode.appendNode('artifactId', dep.name)
+                    dependencyNode.appendNode('version', dep.version)
+                    dependencyNode.appendNode('scope', scope)
+
+                    if (!dep.transitive) {
+                        // If this dependency is transitive, we should force exclude all its dependencies them from the POM
+                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        exclusionNode.appendNode('groupId', '*')
+                        exclusionNode.appendNode('artifactId', '*')
+                    } else if (!dep.properties.excludeRules.empty) {
+                        // Otherwise add specified exclude rules
+                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        dep.properties.excludeRules.each { ExcludeRule rule ->
+                            exclusionNode.appendNode('groupId', rule.group ?: '*')
+                            exclusionNode.appendNode('artifactId', rule.module ?: '*')
+                        }
+                    }
+                }
+
+                // List all "compile" dependencies (for old Gradle)
+                configurations.compile.getDependencies().each { dep -> addDependency(dep, "compile") }
+                // List all "api" dependencies (for new Gradle) as "compile" dependencies
+                configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
+                // List all "implementation" dependencies (for new Gradle) as "runtime" dependencies
+                configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+if (project.hasProperty("bintrayUser") &&
+        project.hasProperty("bintrayApikey") &&
+        project.hasProperty("bintrayGpgPassword")) {
+
+    bintray {
+        user = project.properties.bintrayUser
+        key = project.properties.bintrayApikey
+
+        configurations = ['archives']
+        publications = ['MyPublication']
+        pkg {
+            repo = "maven"
+            name = rootProject.ext.group_name
+            websiteUrl = siteUrl
+            vcsUrl = gitUrl
+            licenses = ["MIT"]
+            publish = true
+            version {
+                name = rootProject.ext.version_name
+                vcsTag = rootProject.ext.version_name
+                gpg {
+                    sign = true
+                    passphrase = project.properties.bintrayGpgPassword
+                }
+            }
+        }
+    }
+
+}

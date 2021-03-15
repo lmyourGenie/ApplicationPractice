@@ -1,6 +1,7 @@
 package com.example.spruce;
 
 import android.app.Activity;
+import android.app.AppComponentFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.willowtreeapps.spruce.Spruce;
 import com.willowtreeapps.spruce.SpruceAnimator;
@@ -20,7 +22,9 @@ import com.willowtreeapps.spruce.sort.DefaultSort;
 import java.util.ArrayList;
 import java.util.List;
 
-public class spruceActivity extends Activity {
+import static android.view.View.inflate;
+
+public class spruceActivity extends AppCompatActivity {
 
     private ListView listView;
     private SpruceAnimator spruceAnimator;
@@ -35,7 +39,7 @@ public class spruceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
-        listView = container.findViewById(R.id.list_view);
+        listView = findViewById(R.id.list_view);
 
         // Create the animator after the list view has finished laying out
         listView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -56,7 +60,7 @@ public class spruceActivity extends Activity {
         listView.setDividerHeight(0);
         listView.setAdapter(new ListViewAdapter(placeHolderList));
 
-        return inflater.inflate(R.layout.list_view, container, false);
+        //return inflate(R.layout.list_view, container, false);
     }
 
     @Override
@@ -83,7 +87,7 @@ public class spruceActivity extends Activity {
 
         ListViewAdapter(List<ExampleData> placeholderList) {
             this.placeholderList = placeholderList;
-            this.inflater = LayoutInflater.from(getContext());
+            this.inflater = LayoutInflater.from(getApplicationContext());
         }
 
         @Override
