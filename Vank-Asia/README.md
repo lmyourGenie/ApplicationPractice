@@ -52,9 +52,10 @@
 ---
 
 ## 3. 어플 다운로드
-![../res/logo.png](https://play.google.com/store/apps/details?id=com.ImyourGenie.vank_asia)
+![어플 로고](../res/logo.png)
 
-※ 이미지 클릭 시 창 전환 됩니다!
+[Google Playstore Link](https://play.google.com/store/apps/details?id=com.ImyourGenie.vank_asia)
+
 
 <br>
 
